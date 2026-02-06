@@ -5,7 +5,8 @@ from airflow.operators.bash import BashOperator
 with DAG(
     "k8s_executor_demo",
     start_date=datetime(2024, 1, 1),
-    schedule=None,
+    # CHANGED: Added Cron expression for every minute
+    schedule="* * * * *", 
     catchup=False,
 ) as dag:
     k8s_task = BashOperator(
