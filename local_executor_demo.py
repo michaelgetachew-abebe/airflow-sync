@@ -5,7 +5,7 @@ from airflow.operators.bash import BashOperator
 with DAG(
     "local_executor_demo",
     start_date=datetime(2024, 1, 1),
-    schedule=None,
+    schedule="* * * * *",
     catchup=False,
 ) as dag:
     local_task = BashOperator(
